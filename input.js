@@ -25,10 +25,20 @@ const setupInput = function (conn) {
       connection.write('Move: right');
     } else if (data === '\u0003') {
       process.exit();
+    } else if (data === 'l') {
+      connection.write('Say: long')
+    } else if (data === 'k') {
+      connection.write('Say: short')
+    } else if (data === 't') {
+      connection.write('Say: turn')
     }
   }
 
   stdin.on('data', (handleUserInput));
+
+  stdin.on('error', (errMsg) => {
+    console.log(`Error: ${errMsg.message}`)
+  });
 
   return stdin;
 }
