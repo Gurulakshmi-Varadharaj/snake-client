@@ -10,8 +10,8 @@ const connect = function () {
   });
   // interpret incoming data as text
   conn.setEncoding('utf8');
-  //Handle messages from server
 
+  //Handle messages from server
   conn.on('data', (data) => {
     console.log('Server says: ', data);
   });
@@ -19,6 +19,17 @@ const connect = function () {
   conn.on('connect', () => {
     console.log('Successfully connected to game server');
     conn.write('Name: VGL');
+  });
+
+  conn.on('connect', () => {
+    setInterval(() => {
+      //conn.write('Move: up');
+    }, 500);
+
+    /*setTimeout(() => {
+      conn.write('Move: down');
+    }, 1000);*/
+
   });
 
   return conn;
