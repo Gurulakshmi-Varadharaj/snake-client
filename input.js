@@ -1,14 +1,8 @@
-const { connect } = require('./client');
-const { setupInput } = require('./input');
-
-console.log('Connecting ...');
-connect();
-
 /**
- * Setup User Interface
+ * Setup User Interface 
  * Specifically, so that we can handle user input via stdin
  */
-/*const setupInput = function () {
+const setupInput = function () {
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
@@ -26,5 +20,5 @@ connect();
   return stdin;
 }
 
-// calling the Stdin interface function*/
-setupInput();
+// Eporting the Stdin interface function to be used by play.js
+module.exports = { setupInput };
